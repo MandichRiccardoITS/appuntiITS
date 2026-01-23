@@ -22,6 +22,10 @@ header {
     align-items: center;
     background-color: #ffffff;
     border-bottom: 1px solid #f0f0f0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
 }
 
 .logo img {
@@ -38,12 +42,16 @@ nav ul li {
 }
 
 nav ul li a {
-    text-decoration: none;
     color: #000000;
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
     font-family: 'IBM Plex Sans', sans-serif;
+    color: inherit;
 }
 
 /* Hero Section */
@@ -164,7 +172,7 @@ main {
     margin-bottom: 20px;
 }
 
-.archive-list {
+ul {
     list-style: none;
 }
 
@@ -176,4 +184,20 @@ main {
     text-decoration: none;
     color: #000000;
     font-weight: 600;
+}
+
+/* Footer Semplificato */
+footer {
+    background-color: #343a40;
+    padding: 40px 5%;
+    border-top: 1px solid #eeeeee;
+    text-align: center;
+    margin-top: 60px;
+    color: white;
+}
+
+.footer-content p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 5px;
 }
