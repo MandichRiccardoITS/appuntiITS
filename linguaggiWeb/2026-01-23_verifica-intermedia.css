@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=IBM+Plex+Serif:wght@400;600&display=swap');
+
+/* Reset base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IBM Plex Serif', serif;
+    line-height: 1.6;
+    color: #000000;
+}
+
+/* Header */
+header {
+    width: 100%;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+    height: 400px;
+    background-image: url('https://www.itsaltoadriatico.it/nws/wp-content/uploads/2025/03/banner-fascia-corsi-2025.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.hero-content {
+    color: #ffffff;
+}
+
+.breadcrumbs {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.hero h1 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+}
+
+/* Main Content */
+main {
+    padding: 40px 5%;
+}
+
+.section-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 32px;
+    margin: 50px 0 20px;
+}
+
+.section-title b {
+    font-weight: 700;
+}
+
+/* Colori delle Aree */
+.area-digital .section-title b {
+    color: #6215c6;
+}
+
+.area-agro .section-title b {
+    color: #78c615;
+}
+
+.area-energy .section-title b {
+    color: #15c6bb;
+}
+
+/* Grid dei Corsi */
+.course-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.course-card {
+    width: 33.33%;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.card-inner {
+    padding: 60px 40px;
+    color: #ffffff;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Colori Card */
+.area-digital .card-inner {
+    background-color: #6215c6;
+}
+
+.area-agro .card-inner {
+    background-color: #78c615;
+}
+
+.area-energy .card-inner {
+    background-color: #15c6bb;
+}
+
+.card-inner h3 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 32px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.card-inner p {
+    font-size: 16px;
+}
+
+.card-arrow {
+    font-size: 24px;
+    text-align: right;
+}
+
+/* Archivio */
+.archive-section {
+    margin-top: 80px;
+}
+
+.archive-section h2 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.archive-list {
+    list-style: none;
+}
+
+.archive-list li {
+    margin-bottom: 10px;
+}
+
+.archive-list li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+}
