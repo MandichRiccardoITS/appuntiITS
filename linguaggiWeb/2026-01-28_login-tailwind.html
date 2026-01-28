@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <title>Login</title>
+    </head>
+    <style>
+        :root{
+            --primary: #0f4ba4;
+        }
+    </style>
+    <body class="bg-(--primary) flex justify-center items-center h-screen border rounded-lg">
+        <div class="form-container w-lg bg-white border-2 border-white p-10 rounded-lg">
+            <h1 class="text-3xl text-center">Login</h1>
+            <form action="#">
+                <label class="mt-5 inline-block" for="email">
+                    Email:
+                </label>
+                <input class="block bg-white border border-gray-300 border-2 rounded-md w-full p-5" type="email" id="email" name="email" placeholder="Enter Email" required>
+                <label class="mt-5 inline-block" for="password">
+                    Password:
+                </label>
+                <input class="block bg-white border border-gray-300 border-2 rounded-md w-full p-5" type="password" id="password" name="password" placeholder="Enter Password" required>
+                <input class="w-full bg-(--primary) p-5 mt-5 mb-25 uppercase text-white" type="submit" value="Sign in">
+            </form>
+        </div>
+    </body>
+</html>
