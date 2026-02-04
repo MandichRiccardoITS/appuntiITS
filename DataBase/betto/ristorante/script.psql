@@ -1,14 +1,14 @@
-create table prenotazione(
+create table ristorante(
 	id serial primary key,
-	nome_completo_ospite varchar(150) not null,
-	telefono_ospite varchar(16) not null,
-	data timestamp,
-	numero_persone int not null,
-	id_dipendente serial not null,
-	id_ristorante serial not null,
-	cancellata_alle timestamp,
-	foreign key (id_dipendente) references dipendente(id),
-	foreign key (id_ristorante) references ristorante(id)
+	nome varchar(150) not null,
+	indirizzo varchar(150) not null,
+	telefono varchar(16) not null,
+	orario_apertura time not null,
+	orario_chiusura time not null,
+	posti_adulti int not null,
+	posti_bambini int not null,
+	posti_totali int not null
+	-- check(posti_totali == "posti_adulti" + "posti_bambini")
 );
 
 create table dipendente(
@@ -21,15 +21,15 @@ create table dipendente(
 	foreign key (id_ristorante) references ristorante(id)
 );
 
-create table ristorante(
+create table prenotazione(
 	id serial primary key,
-	nome varchar(150) not null,
-	indirizzo varchar(150) not null,
-	telefono varchar(16) not null,
-	orario_apertura time not null,
-	orario_chiusura time not null,
-	posti_adulti int not null,
-	posti_bambini int not null,
-	posti_totali int not null
-	-- check(posti_totali == "posti_adulti" + "posti_bambini")
+	nome_completo_ospite varchar(150) not null,
+	telefono_ospite varchar(16) not null,
+	data timestamp,
+	numero_persone int not null,
+	id_dipendente serial not null,
+	id_ristorante serial not null,
+	cancellata_alle timestamp,
+	foreign key (id_dipendente) references dipendente(id),
+	foreign key (id_ristorante) references ristorante(id)
 );
