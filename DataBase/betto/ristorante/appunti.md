@@ -1,3 +1,4 @@
+# appunti generici
 - registrare le prenotazione
     - mi interessa il nome della persona, il numero di telefono, il numero di persone, la data e l'ora
     - mi interessa chi registra la prenotazione (dipendente)
@@ -7,7 +8,7 @@
     - mi interessa il nome del ristorante, l'indirizzo, il numero di telefono, l'orario di apertura e chiusura
 
 ---
-
+# DB
 - prenotazione
     - id
     - full_name_ospite
