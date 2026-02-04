@@ -1,0 +1,34 @@
+- registrare le prenotazione
+    - mi interessa il nome della persona, il numero di telefono, il numero di persone, la data e l'ora
+    - mi interessa chi registra la prenotazione (dipendente)
+    - mi interessa il ristorante in cui si prenota
+    - mi interessa che la prenotazione possa venire annullata (soft delete)
+- registrare i ristoranti
+    - mi interessa il nome del ristorante, l'indirizzo, il numero di telefono, l'orario di apertura e chiusura
+
+---
+
+- prenotazione
+    - id
+    - full_name_ospite
+    - telefono_ospite
+    - data
+    - numero_persone
+    - id_dipendente (fk->dipendente.id)
+    - id_ristorante (fk->ristorante.id)
+    - deleted_at (timestamp)
+- dipendente
+    - id
+    - nome
+    - cognome
+    - telefono
+    - email
+    - id_ristorante (fk->ristorante.id)
+- ristorante
+    - id
+    - nome
+    - indirizzo
+    - telefono
+    - orario_apertura
+    - orario_chiusura
+    - posti_totali
