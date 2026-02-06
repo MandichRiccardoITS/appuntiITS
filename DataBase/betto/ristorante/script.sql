@@ -33,3 +33,21 @@ create table prenotazione(
 	foreign key (id_dipendente) references dipendente(id),
 	foreign key (id_ristorante) references ristorante(id)
 );
+
+create table modello_coupon(
+	id serial primary key,
+	definizione varchar(255) not null,
+	id_ristorante serial not null,
+	durata interval not null,
+	attivo boolean default true not null,
+	foreign key (id_ristorante) references ristorante(id)
+);
+
+create table coupon(
+	id uuid primary key default gen_random_uuid(),
+	scadenza timestamp not null,
+	emissione timestamp not null DEFAULT now(),
+	id_modello serial not null,
+	usato boolean default false not null,
+	foreign key (id_modello) references modello_coupon(id)
+);
