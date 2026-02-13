@@ -7,7 +7,6 @@ drop table if exists restourant;
 create table restourant(
 	id serial primary key,
 	name varchar(150) not null,
-	surname varchar(150) not null,
 	address varchar(150) not null,
 	number varchar(16) not null,
 	opening time not null,
@@ -28,16 +27,19 @@ create table employee(
 
 create table coupon_model(
 	id serial primary key,
-	definition varchar(255) not null,
+	gift varchar(255),
+	discount int,
 	id_restourant int not null,
 	duration interval not null,
 	active boolean default true not null,
+	expiring timestamp not null,
+	check (discount <= 100 or discount >= 0),
+	check (discount is not null and gift is null or discount is null and gift is null),
 	foreign key (id_restourant) references restourant(id)
 );
 
 create table coupon(
 	id uuid primary key default gen_random_uuid(),
-	expiring timestamp not null,
 	emission timestamp not null DEFAULT now(),
 	id_model int not null,
 	active boolean default false not null,
@@ -60,15 +62,14 @@ create table booking(
 	foreign key (id_restourant) references restourant(id)
 );
 
-
 insert into restourant 
-(name, surname, address, number, opening, closure, adult, people) 
+(name, address, number, opening, closure, adult, people) 
 values
-('Trattoria', 'Da Mario', 'Via Indipendenza 12, Bologna', '0511234567', '12:00', '23:00', 60, 80),
-('Osteria', 'del Porto', 'Via del Porto 8, Bologna', '0512345678', '11:30', '22:30', 50, 65),
-('Ristorante', 'La Pergola', 'Via Saragozza 45, Bologna', '0513456789', '12:30', '23:30', 70, 95),
-('Pizzeria', 'Bella Napoli', 'Via Massarenti 101, Bologna', '0514567890', '11:00', '23:59', 80, 110),
-('Bistrot', 'Centrale', 'Piazza Maggiore 3, Bologna', '0515678901', '07:00', '20:00', 40, 50);
+('Trattoria Da Mario', 'Via Indipendenza 12, Bologna', '0511234567', '12:00', '23:00', 60, 80),
+('Osteria del Porto', 'Via del Porto 8, Bologna', '0512345678', '11:30', '22:30', 50, 65),
+('Ristorante La Pergola', 'Via Saragozza 45, Bologna', '0513456789', '12:30', '23:30', 70, 95),
+('Pizzeria Bella Napoli', 'Via Massarenti 101, Bologna', '0514567890', '11:00', '23:59', 80, 110),
+('Bistrot Centrale', 'Piazza Maggiore 3, Bologna', '0515678901', '07:00', '20:00', 40, 50);
 
 insert into employee 
 (name, surname, number, email, id_restourant) 
@@ -130,5 +131,49 @@ values
 (now() - interval '5 days', now() - interval '40 days',2,false),
 (now() + interval '15 days', now() - interval '5 days',2,false);
 
+-- Quanti Coupon emessi in una determinata giornata
 
--- todo
+select count(*)
+	from coupon
+		where emission::date = '2026-02-08';
+
+--Quantità di prenotazioni con coupon in giornata
+
+select count(*)
+	from booking
+		where coupon_id is not null
+			group by date::date;
+
+--top 5 promozioni più utlizzate quest'anno in ordine decrescente
+
+select *
+from coupon_model
+where id in(
+select c.id_model 
+	from booking b join coupon c on b.coupon_id = c.id
+		group by id_model 
+		order by count(*)
+		limit 5
+)
+
+--Dipendenti senza prenotazioni o con prenotazione inferiori a 10 in ordine decrescente
+
+select e.name, e.surname
+	from employee as e left join booking as b on e.id = b.id_employee 
+	group by e.id
+	having count(*) < 10
+	order by count(*);
+
+--mostra ristoranti, prenotazioni ristoranti e prenotazioni con coupon su un mese specifico
+
+select 
+    r.id,
+    r.name as nome,
+    count(b.id) as prenotazioni_totali,
+    count(b.coupon_id) as prenotazioni_con_coupon
+from restourant r
+left join booking b 
+    on b.id_restourant = r.id
+    --and date_trunc('month', b.date) = date '2026-02-01'
+group by r.id, r.name
+order by r.name;
