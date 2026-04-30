@@ -1,5 +1,6 @@
 services:
   its-postgres:
+    restart: unless-stopped
     image: postgres:latest
     container_name: its_postgres
     environment:
