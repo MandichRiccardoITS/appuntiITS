@@ -1,0 +1,4 @@
+# oggetto
+Candidatura stage ITS Alto Adriatico – Corso Full Stack Developer 2025-2027
+# testo
+Gentili referenti di SIPE, mi chiamo Riccardo Mandich e sto frequentando il corso Full Stack Developer 2025-2027 all'ITS Alto Adriatico. Durante le scuole superiori ho già avuto l'opportunità di svolgere uno stage presso la vostra azienda (prima in sede vostra a settembre 2025 e poi una seconda esperienza molto più ridotta con dei vostri dipendenti che sono venuti da noi al Fermi di venezia) e conservo un ricordo positivo dell'esperienza. Oggi mi piacerebbe poter tornare a fare lo stage del secondo anno dell'ITS. Con l'ITS sto acquisendo competenze specifiche che vorrei mettere in pratica sul campo, e da voi sarebbe per me un buon contesto per crescere professionalmente. Rimango a disposizione per quanto riteniate necessario e vi ringrazio per l’attenzione. Cordiali saluti, Riccardo Mandich
